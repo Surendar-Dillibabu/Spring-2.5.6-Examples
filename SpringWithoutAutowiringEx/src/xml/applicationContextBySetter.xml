@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+      
+   <bean id="employeeBean" class="com.autowire.by.setter.demo.beans.EmployeeBean">
+     <property name="employeeId" value="101"/>
+     <property name="employeeName" value="Surendar Dillibabu"/>
+     <property name="departmentBean" ref="departmentBean"/>
+   </bean>
+   
+   <bean id="departmentBean" class="com.autowire.by.setter.demo.beans.DepartmentBean">
+     <property name="deptId" value="15" />
+     <property name="departmentName" value="Banking" />
+   </bean>
+     
+</beans>
