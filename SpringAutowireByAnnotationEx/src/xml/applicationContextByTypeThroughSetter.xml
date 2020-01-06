@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+   <!-- 
+     context:component-scan or context:annotation-config is not supported in the spring 2.5.6 version. 
+     So, we have to inject the dependency through below  AutowiredAnnotationBeanPostProcessor only. 
+     This bean will scan the project and then find the @Autowired annotation to inject the corresponding dependency.
+     
+     This bean won't register any beans. It just solves the dependency 
+   -->   
+   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+      
+   <bean id="employeeBean" class="com.autowire.by.type.setter.demo.beans.EmployeeBean">
+     <property name="employeeId" value="101"/>
+     <property name="employeeName" value="Surendar.D"/>
+   </bean>
+   
+   <bean id="departmentBean" class="com.autowire.by.type.setter.demo.beans.DepartmentBean">
+     <property name="deptId" value="12" />
+     <property name="departmentName" value="Risk management" />
+   </bean>
+   
+   <!--
+   <bean id="departmentBean1" class="com.autowire.by.type.setter.demo.beans.DepartmentBean">
+     <property name="deptId" value="13" />
+     <property name="departmentName" value="Credit Risk" />
+   </bean>
+   -->
+   
+</beans>

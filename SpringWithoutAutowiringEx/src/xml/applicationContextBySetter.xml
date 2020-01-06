@@ -6,6 +6,10 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
       
+   <!--
+     Here in the both EmployeeBean and DepartmentBean we will have only setter/getters.
+     We are injecting the bean values through below xml setter property methods. 
+   -->
    <bean id="employeeBean" class="com.autowire.by.setter.demo.beans.EmployeeBean">
      <property name="employeeId" value="101"/>
      <property name="employeeName" value="Surendar Dillibabu"/>

@@ -8,10 +8,25 @@ public class EmployeeBean {
 
   private DepartmentBean departmentBean;
 
-  public EmployeeBean(int employeeId, String employeeName, DepartmentBean departmentBean) {
-    this.employeeId = employeeId;
-    this.employeeName = employeeName;
+  // spring will inject through auto wire by constructor
+  public EmployeeBean(DepartmentBean departmentBean) {
     this.departmentBean = departmentBean;
+  }
+
+  public int getEmployeeId() {
+    return employeeId;
+  }
+
+  public void setEmployeeId(int employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getEmployeeName() {
+    return employeeName;
+  }
+
+  public void setEmployeeName(String employeeName) {
+    this.employeeName = employeeName;
   }
 
   @Override

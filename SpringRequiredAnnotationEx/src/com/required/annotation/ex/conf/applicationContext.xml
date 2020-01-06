@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<!-- 
+	  This below RequiredAnnotationBeanPostProcessor bean is used to check and validate the @Required annotation.
+	  In our Customer bean class we have specified the Person class as @Required. So, it will validate whether it has been provided with value.
+	  If not then it will throw BeanInitializationException.
+	  
+	  This is similar to dependency-check attribute. But it case of dependency check we can't do the validation for particular field alone.
+	  But here in @Required attribute we can perform particular field validation.
+	  
+	  Also from Spring-3 onwards dependency-check attribute is deprecated so we have to use @Required attribute instead of it.
+	  
+	  We can specify the RequiredAnnotationBeanPostProcessor or annotation-config to validate the fields
+	-->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	
+	<bean id="customer" class="com.required.annotation.ex.beans.Customer">
+  	  <property name="customerId" value="10" />
+  	  <property name="type" value="Teenage" /> 
+  	  <property name="person" ref="person" />
+  	</bean>
+	
+  	<bean id="person" class="com.required.annotation.ex.beans.Person">
+      <property name="name" value="Surendar.D" />
+      <property name="address" value="West mambalam" />
+      <property name="age" value="27" />
+  	</bean>
+	
+</beans>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+   <!-- 
+     context:component-scan or context:annotation-config is not supported in the spring 2.5.6 version. 
+     So, we have to inject the dependency through below  AutowiredAnnotationBeanPostProcessor only. 
+     This bean will scan the project and then find the @Autowired annotation to inject the corresponding dependency.
+     
+     This bean won't register any beans. It just solves the dependency 
+   -->   
+   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+      
+   <!-- 
+     In this beans if you see we only have the setter/getters methods not any constructors. constructors are not needed since we are injecting the dependency through setters/getters.
+     But departmentBean we are allowing the spring to inject through auto wire by name.
+     
+     Now spring will check if any bean has been declared with as per the name provided in the EmployeeBean.
+     Then it will inject it.
+     
+     Auto wire byName uses setDepartmentBean method. Here if you want to check whether it's happening based on the name then you can change the 
+     setDepartmentBean method name or below departmentBean id as different to check it
+   -->     
+   <bean id="employeeBean" class="com.autowire.by.type.field.demo.beans.EmployeeBean">
+     <property name="employeeId" value="100"/>
+     <property name="employeeName" value="Surendar.D"/>
+   </bean>
+   
+   <!-- 
+     In this beans if you see we only have the setter-getters not any constructors. constructors are not needed since we are injecting the dependency through setters/getters. 
+   -->   
+   <bean id="departmentBean" class="com.autowire.by.type.field.demo.beans.DepartmentBean">
+     <property name="deptId" value="10" />
+     <property name="departmentName" value="Human Resource" />
+   </bean>
+     
+</beans>

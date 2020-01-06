@@ -1,4 +1,4 @@
-package com.autowire.by.constructor.demo.beans;
+package com.autowire.by.type.field.demo.beans;
 
 public class DepartmentBean {
 
@@ -6,8 +6,19 @@ public class DepartmentBean {
 
   private String departmentName;
 
-  public DepartmentBean(int deptId, String departmentName) {
+  public int getDeptId() {
+    return deptId;
+  }
+
+  public void setDeptId(int deptId) {
     this.deptId = deptId;
+  }
+
+  public String getDepartmentName() {
+    return departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
     this.departmentName = departmentName;
   }
 

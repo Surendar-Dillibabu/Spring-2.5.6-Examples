@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<!-- 
+	  This below RequiredAnnotationBeanPostProcessor bean we can pass our own annotation through requiredAnnotationType property
+	-->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+	  <property name="requiredAnnotationType" value="com.custom.required.annotation.Mandatory"/>
+	</bean>
+	
+	<bean id="customer" class="com.custom.required.annotation.ex.beans.Customer">
+  	  <property name="customerId" value="10" />
+  	  <property name="type" value="Teenage" /> 
+  	  <property name="person" ref="person" />  	  
+  	</bean>
+	
+  	<bean id="person" class="com.custom.required.annotation.ex.beans.Person">
+      <property name="name" value="Surendar.D" />
+      <property name="address" value="West mambalam" />
+      <property name="age" value="27" />
+  	</bean>
+	
+</beans>

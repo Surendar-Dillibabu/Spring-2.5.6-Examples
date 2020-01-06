@@ -1,20 +1,20 @@
 package com.autowire.demo.client;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.autowire.by.constructor.demo.beans.EmployeeBean;
+import com.autowire.by.type.field.demo.beans.EmployeeBean;
 
-public class AutowireByConstructorArg {
+public class AutowireByTypeThroughFieldEx {
 
   public static void main(String[] args) {
+
     // For single context file we can pass directly like this
-    ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("xml/applicationContextByConstructor.xml");
+    ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("xml/applicationContextByTypeThroughField.xml");
     // For passing multiple context files we can pass the files inside the String
     // array like below
     // ApplicationContext appContext = new ClassPathXmlApplicationContext(new
-    // String[] { "applicationContextByConstructor.xml" });
+    // String[] { "applicationContextByTypeThroughField.xml" });
     EmployeeBean employeeBean = (EmployeeBean) appContext.getBean("employeeBean");
     System.out.println(employeeBean);
-    
     appContext.close();
   }
 }

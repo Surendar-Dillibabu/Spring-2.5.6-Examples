@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+      
+   <!--   
+     Here we are passing two setter properties and then we are passing the auto wire type as constructor.
+     If you see the EmployeeBean class we have one constructor which will receive only the DepartmentBean object.
+     
+     Now as per the below xml configuration the employeeId and employeeName will be injected to the EmployeeBean class through the setter methods (i.e. setEmployeeId and setEmployeeName).
+     It has been done by through xml and java code. But the departmentBean object has been injected by the spring through constructor.
+     
+     Spring will check whether do we have any DepartmentBean object type has been registered in the container (i.e. It will check the EmployeeBean constructor and then it will realise the 
+     EmployeeBean is having dependency with DepartmentBean object type. Then it will check whether do we have any corresponding departmentBean object type present in the container). 
+     If so, it will inject the departmentBean through constructor of EmployeeBean. If not, it will inject with null values
+     
+     In case if we have two beans regsistered in the container for same bean type (i.e. DepartmentBean) then it will throw NoSuchBeanDefinitionException will be thrown.
+     Since the auto wire constructor as well will solve the dependency through auto wire byType     
+   -->
+   <bean id="employeeBean" class="com.autowire.by.constructor.demo.beans.EmployeeBean" autowire="constructor">
+     <property name="employeeId" value="100"/>
+     <property name="employeeName" value="Surendar.D"/>     
+   </bean>   
+  
+   
+   <!-- 
+     In this DepartmentBean class if you see we only have the constructors not any setter-getters. 
+     Setters and getters are not needed since we are injecting the dependency through constructor.
+     
+     Here we can't provide the auto wire type as constructor. Since the departmentId and departmentName are like constant values.
+     We have to provide those values.
+     
+     Here in the below xml we are passing as a normal constructor so we don't need to provide the auto wiring type.
+     In case if we pass auto wire as byName or byType then spring won't consider it. It will be automatically over written by the constructor arguments which we have provided in the xml bean configuration below
+   -->
+   <bean id="departmentBean" class="com.autowire.by.constructor.demo.beans.DepartmentBean">
+     <constructor-arg index="0" type="int">
+       <value>15</value>
+     </constructor-arg>
+     <constructor-arg index="1" type="java.lang.String">
+       <value>Customer-care</value>
+     </constructor-arg>
+   </bean>
+   
+   <!-- 
+   <bean id="departmentBean1" class="com.autowire.by.constructor.demo.beans.DepartmentBean">
+     <constructor-arg index="0" type="int">
+       <value>15</value>
+     </constructor-arg>
+     <constructor-arg index="1" type="java.lang.String">
+       <value>Customer-care</value>
+     </constructor-arg>
+   </bean>
+   -->
+     
+</beans>

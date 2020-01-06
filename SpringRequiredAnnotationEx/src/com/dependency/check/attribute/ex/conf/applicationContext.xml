@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 
+	  Here in this bean if we don't pass any of the attribute it won't throw any error. Simply it allocate with default values.
+	  dependency-check attribute is used to validate the mandatory fields. default, none, simple, objects and all. 
+	  These are the attribute values allowed. Default value is none. None won't validate any fields if not present.
+	  
+	  simple - It validate whether if any values of type int, float, long, list, map etc are provided or not. If not provided it will throw UnsatisfiedDependencyException
+	  objects - It validate whether if any values of objects type are provided or not. If not provided it will throw UnsatisfiedDependencyException
+	  all - It is a combination of both simple and objects
+	-->
+  	<bean id="customer" class="com.dependency.check.attribute.ex.beans.Customer" dependency-check="all">
+  	  <property name="customerId" value="10" />
+  	  <property name="type" value="Teenage" />
+  	  <property name="person" ref="person" />
+  	</bean>
+	
+  	<bean id="person" class="com.dependency.check.attribute.ex.beans.Person">
+      <property name="name" value="Surendar.D" />
+      <property name="address" value="West mambalam" />
+      <property name="age" value="27" />
+  	</bean>
+	
+</beans>

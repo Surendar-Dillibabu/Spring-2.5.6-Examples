@@ -6,6 +6,10 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
       
+   <!--
+     Here in the both EmployeeBean and DepartmentBean we will have only constructors.
+     We are injecting the bean values through below xml constructor arguments. 
+   -->
    <bean id="employeeBean" class="com.autowire.by.constructor.demo.beans.EmployeeBean">
      <constructor-arg index="0" type="int">
        <value>101</value>

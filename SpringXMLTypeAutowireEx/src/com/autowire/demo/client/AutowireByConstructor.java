@@ -3,7 +3,7 @@ package com.autowire.demo.client;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.autowire.by.constructor.demo.beans.EmployeeBean;
 
-public class AutowireByConstructorArg {
+public class AutowireByConstructor {
 
   public static void main(String[] args) {
     // For single context file we can pass directly like this
@@ -14,7 +14,6 @@ public class AutowireByConstructorArg {
     // String[] { "applicationContextByConstructor.xml" });
     EmployeeBean employeeBean = (EmployeeBean) appContext.getBean("employeeBean");
     System.out.println(employeeBean);
-    
     appContext.close();
   }
 }

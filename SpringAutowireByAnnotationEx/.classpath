@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-beans-2.5.6.jar" sourcepath="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-beans-2.5.6-sources.jar"/>
+	<classpathentry kind="lib" path="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-context-2.5.6.jar" sourcepath="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-context-2.5.6-sources.jar"/>
+	<classpathentry kind="lib" path="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-core-2.5.6.jar" sourcepath="G:/Photon workspace/Libs/spring-jars/2.5.6/spring-core-2.5.6-sources.jar"/>
+	<classpathentry kind="lib" path="G:/Photon workspace/Libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
